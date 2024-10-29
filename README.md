@@ -14,3 +14,5 @@ Tóm tắt toàn bộ tính năng của ứng dụng
             Retrofit cho việc gọi API và lấy dữ liệu từ nguồn bên ngoài.
             Android UI Components cho việc xây dựng giao diện người dùng tương tác.
             MVC để tách biệt giữa các phần của ứng dụng, giúp dễ bảo trì và mở rộng.
+
+        Link VideoDemo : https://youtu.be/xmt24aSbkOY 
