@@ -1,4 +1,5 @@
 package com.example.myapplication.view
+
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -27,17 +28,29 @@ class MainActivity : AppCompatActivity() {
         )
 
         spinnerFrom.adapter = ArrayAdapter(
-            this, android.R.layout.simple_spinner_item, currencies.map { it.name }
+            this, android.R.layout.simple_spinner_dropdown_item, currencies.map { it.name }
         )
 
         spinnerTo.adapter = ArrayAdapter(
-            this, android.R.layout.simple_spinner_item, currencies.map { it.name }
+            this, android.R.layout.simple_spinner_dropdown_item, currencies.map { it.name }
         )
 
         convertButton.setOnClickListener {
             val from = currencies[spinnerFrom.selectedItemPosition].code
             val to = currencies[spinnerTo.selectedItemPosition].code
-            val amount = amountInput.text.toString().toDoubleOrNull() ?: 0.0
+            val amountString = amountInput.text.toString()
+
+            // Kiểm tra xem người dùng đã nhập dữ liệu hợp lệ chưa
+            if (amountString.isBlank()) {
+                Toast.makeText(this, "Please enter a valid amount", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val amount = amountString.toDoubleOrNull()
+            if (amount == null || amount <= 0) {
+                Toast.makeText(this, "Please enter a valid amount greater than zero", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
             controller.convertAmount(from, to, amount) { result ->
                 // Định dạng kết quả với 2 chữ số thập phân
@@ -48,4 +61,3 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
-

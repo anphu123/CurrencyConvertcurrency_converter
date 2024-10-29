@@ -1,40 +1,52 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    tools:ignore="ExtraText">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="198dp"
+        android:src="@drawable/a" />
     <Spinner
         android:id="@+id/spinner_from"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="48dp"
+
+        android:layout_marginTop="10dp"
+        android:padding="12dp" />
 
     <Spinner
         android:id="@+id/spinner_to"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp" />
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:padding="12dp" />
 
     <EditText
         android:id="@+id/amount_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:hint="Enter amount"
-        android:inputType="numberDecimal"
-        android:layout_marginTop="8dp"/>
+        android:inputType="numberDecimal" />
 
     <Button
         android:id="@+id/convert_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Convert"
-        android:layout_marginTop="8dp"/>
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:text="Convert" />
 
     <TextView
         android:id="@+id/result_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30dp"
+        android:layout_marginTop="16dp"
         android:text="Converted:"
-        android:layout_marginTop="16dp" />
+        android:textColor="@color/blue"
+        android:textSize="30sp" />
 </LinearLayout>
